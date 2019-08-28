@@ -1,12 +1,14 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap'
 
+import * as ROUTES from './constants/routes';
 import logo from './nimbly.png' 
 import Authentication from './components/Authentication'
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">
           <img
@@ -19,13 +21,13 @@ function App() {
           {' Nimbly Testing Boilerplate'}
         </Navbar.Brand>
         <Nav className="ml-auto">
-          <Nav.Link href="#home">Authentication</Nav.Link>
-          <Nav.Link href="#features">About Us</Nav.Link>
-          <Nav.Link href="#pricing">Help</Nav.Link>
+          <Nav.Link href="#home" to={ROUTES.AUTHENTICATION}>Authentication</Nav.Link>
+          <Nav.Link href="#features" to={ROUTES.ABOUT_US}>About Us</Nav.Link>
+          <Nav.Link href="#pricing" to={ROUTES.HELP}>Help</Nav.Link>
         </Nav>
       </Navbar>
-      <Authentication />
-    </div>
+      <Route exact path={ROUTES.AUTHENTICATION} component={Authentication} />
+    </Router>
   );
 }
 
