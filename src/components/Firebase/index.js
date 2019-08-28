@@ -12,7 +12,9 @@ const config = {
   appId: process.env.REACT_APP_APP_ID
 };
 
-export default class Firebase {
+const FirebaseContext = React.createContext(null)
+
+class Firebase {
   constructor() {
     app.initializeApp(config)
     this.auth = app.auth
@@ -31,6 +33,5 @@ export default class Firebase {
   }
 }
 
-const FirebaseContext = React.createContext(null)
-
 export { FirebaseContext };
+export default Firebase;

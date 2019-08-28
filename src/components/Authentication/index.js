@@ -1,7 +1,28 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap'
 
+import RegisterModal from './components/RegisterModal'
+
 class AuthenticationPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      show: false,
+      setShow: false
+    }
+    this.handleClose = this.handleClose.bind(this)
+    this.handleShow = this.handleShow.bind(this)
+  }
+
+  handleClose() {
+    this.setState({ show: false })
+  }
+
+  handleShow() {
+    this.setState({ show: true })
+  }
+
+
   render() {
     return (
       <Container 
@@ -38,11 +59,15 @@ class AuthenticationPage extends Component {
         <Row>
           <Col md={{ span: 6, offset: 3 }} style={{ textAlign: 'center' }}>
             <h5>Don't have an account? Please register here.</h5>
-            <Button variant="success" type="submit">
+            <Button variant="success" type="submit" onClick={this.handleShow}>
               Register
             </Button>
           </Col>
         </Row>
+        <RegisterModal 
+          show={this.state.show}
+          handleClose={this.handleClose}
+        />
       </Container>
     )
   }
