@@ -1,34 +1,53 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap'
 
 import * as ROUTES from './constants/routes';
-import logo from './nimbly.png' 
-import Authentication from './components/Authentication'
+import logo from './nimbly.png'
+
+import AuthenticationPage from './components/Authentication'
+import AboutPage from './components/About'
 
 function App() {
   return (
     <Router>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">
-          <img
-            alt=""
-            src={logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />
-          {' Nimbly Testing Boilerplate'}
+          <NavLink to={ROUTES.AUTHENTICATION} style={style.linkStyle}>
+            <img
+              alt=""
+              src={logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />
+            {' Nimbly Testing Boilerplate'}
+          </NavLink>
         </Navbar.Brand>
         <Nav className="ml-auto">
-          <Nav.Link href="#home" to={ROUTES.AUTHENTICATION}>Authentication</Nav.Link>
-          <Nav.Link href="#features" to={ROUTES.ABOUT_US}>About Us</Nav.Link>
-          <Nav.Link href="#pricing" to={ROUTES.HELP}>Help</Nav.Link>
+          <NavLink to={ROUTES.ABOUT_US} style={style.linkStyle} activeStyle={style.activeStyle}>
+            About Us
+          </NavLink>
+          <NavLink to={ROUTES.HELP} style={style.linkStyle} activeStyle={style.activeStyle}>
+            Help
+          </NavLink>
         </Nav>
       </Navbar>
-      <Route exact path={ROUTES.AUTHENTICATION} component={Authentication} />
+      <Route exact path={ROUTES.AUTHENTICATION} component={AuthenticationPage} />
+      <Route path={ROUTES.ABOUT_US} component={AboutPage} />
     </Router>
   );
+}
+
+const style = {
+  activeStyle: {
+    fontWeight: "bold",
+    color: "#636e72"
+  },
+  linkStyle: {
+    marginRight: 10,
+    color: 'white'
+  }
 }
 
 export default App;

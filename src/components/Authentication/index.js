@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap'
 
-class Authentication extends Component {
+class AuthenticationPage extends Component {
   render() {
     return (
       <Container 
@@ -48,4 +48,4 @@ class Authentication extends Component {
   }
 }
 
-export default Authentication
+export default AuthenticationPage
