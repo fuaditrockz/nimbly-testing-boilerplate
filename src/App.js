@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap'
 
 import * as ROUTES from './constants/routes';
@@ -12,8 +12,8 @@ function App() {
   return (
     <Router>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-          <NavLink to={ROUTES.AUTHENTICATION} style={style.linkStyle}>
+        <Navbar.Brand>
+          <Link to={ROUTES.AUTHENTICATION} style={style.linkStyle}>
             <img
               alt=""
               src={logo}
@@ -22,7 +22,7 @@ function App() {
               className="d-inline-block align-top"
             />
             {' Nimbly Testing Boilerplate'}
-          </NavLink>
+          </Link>
         </Navbar.Brand>
         <Nav className="ml-auto">
           <NavLink to={ROUTES.ABOUT_US} style={style.linkStyle} activeStyle={style.activeStyle}>

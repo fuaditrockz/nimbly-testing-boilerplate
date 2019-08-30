@@ -37,7 +37,7 @@ class AuthenticationPage extends Component {
               <Form>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control type="email" placeholder="Enter email" name="email" />
                   <Form.Text className="text-muted">
                     Your email will saving in our database.
                   </Form.Text>
