@@ -48,7 +48,7 @@ class AuthenticationPage extends Component {
     
     this.setState({ validated: true })
     console.log(this.state.validated)
-    /* console.log(this.state.dataInput) */
+    console.log(this.state.dataInput)
     e.preventDefault()
   }
 

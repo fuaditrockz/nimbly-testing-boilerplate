@@ -7,6 +7,8 @@ import logo from './nimbly.png'
 
 import AuthenticationPage from './components/Authentication'
 import AboutPage from './components/About'
+import HelpPage from './components/Help'
+import PostForm from './components/PostForm'
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
           </Link>
         </Navbar.Brand>
         <Nav className="ml-auto">
+          <NavLink to={ROUTES.POST_FORM} style={style.linkStyle} activeStyle={style.activeStyle}>
+            Post Form
+          </NavLink>
           <NavLink to={ROUTES.ABOUT_US} style={style.linkStyle} activeStyle={style.activeStyle}>
             About Us
           </NavLink>
@@ -35,6 +40,8 @@ function App() {
       </Navbar>
       <Route exact path={ROUTES.AUTHENTICATION} component={AuthenticationPage} />
       <Route path={ROUTES.ABOUT_US} component={AboutPage} />
+      <Route path={ROUTES.HELP} component={HelpPage} />
+      <Route path={ROUTES.POST_FORM} component={PostForm} />
     </Router>
   );
 }

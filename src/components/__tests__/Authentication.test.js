@@ -8,6 +8,7 @@ describe('Authentication', () => {
     describe('user login', () => {
         it('when email is empty will not approval', () => {
             const component = shallow(<AuthenticationPage />)
+            const emailInput = component.find()
         });
     });
 });
